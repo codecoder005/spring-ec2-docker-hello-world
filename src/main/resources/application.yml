@@ -1,4 +1,7 @@
 spring:
   application:
     name: spring-graphql-validation
+  h2:
+    console:
+      enabled: true
 
