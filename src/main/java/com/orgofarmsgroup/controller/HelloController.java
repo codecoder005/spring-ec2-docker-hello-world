@@ -1,5 +1,6 @@
 package com.orgofarmsgroup.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,14 +10,16 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class HelloController {
     @GetMapping
-    public String sayHello() {
+    public String sayHello(HttpServletRequest request) {
         log.info("GET /hello accessed");
+        System.out.println("Client IP: " + request.getRemoteAddr());
         return "Hello World from EC2 Instance Docker Container";
     }
 
     @GetMapping("/{user}")
-    public String sayHelloToUser(@PathVariable String user) {
+    public String sayHelloToUser(@PathVariable String user, HttpServletRequest request) {
         log.info("GET /hello/user accessed");
+        System.out.println("Client IP: " + request.getRemoteAddr());
         return "Hello "+ user + " from EC2 Instance Docker Container";
     }
 }
