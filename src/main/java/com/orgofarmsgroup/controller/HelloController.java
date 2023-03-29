@@ -12,14 +12,14 @@ public class HelloController {
     @GetMapping
     public String sayHello(HttpServletRequest request) {
         log.info("GET /hello accessed");
-        System.out.println("Client IP: " + request.getRemoteAddr());
+        log.info("Client IP: " + request.getRemoteAddr());
         return "Hello World from EC2 Instance Docker Container";
     }
 
     @GetMapping("/{user}")
     public String sayHelloToUser(@PathVariable String user, HttpServletRequest request) {
         log.info("GET /hello/user accessed");
-        System.out.println("Client IP: " + request.getRemoteAddr());
+        log.info("Client IP: " + request.getRemoteAddr());
         return "Hello "+ user + " from EC2 Instance Docker Container";
     }
 }
